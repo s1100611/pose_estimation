@@ -5,19 +5,19 @@
 
 #### 資料夾樹狀圖如下
 
-data pre-process folder  
-  |_ 0_ig_login.py  
-  |_ 1_ig_crawler.py  
-  |_ 1-1_clean_人員list.py  
-  |_ 2_select_jpg.py  
-  |_ 3_postestimanation.py  
-  |_ 4_del.py  
-  |_ 4-1_check.py  
-  |_ 4-2_count.py  
-  |_ cluster_keypoint.py  
-  |_ instaloader.app  
-  |_ instaloader.exe  
-  |_ 粉絲數高攝影師名單.excel  
+**data pre-process** folder  
+    |_ 0_ig_login.py  
+    |_ 1_ig_crawler.py  
+    |_ 1-1_clean_人員list.py  
+    |_ 2_select_jpg.py  
+    |_ 3_postestimanation.py  
+    |_ 4_del.py  
+    |_ 4-1_check.py  
+    |_ 4-2_count.py  
+    |_ cluster_keypoint.py  
+    |_ instaloader.app  
+    |_ instaloader.exe  
+    |_ 粉絲數高攝影師名單.excel  
 
 #### 0_ig_login.py
 
@@ -41,10 +41,12 @@ data pre-process folder
 
 #### 4_del.py
 
-
+這段程式碼用來刪掉沒有辨識到的照片，由4-1和4-2程式碼合併而成
 
 #### 4-1_check.py
 
+這段程式碼用來檢查照片有沒有辨識到
+
 #### 4-2_count.py
 
-
+這段程式碼用來計算資料夾內照片數量，檢查有沒有刪對
