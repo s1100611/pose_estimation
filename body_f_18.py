@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 12 01:04:28 2024
-
-@author: shama
-"""
 
 import cv2
 import mediapipe as mp
