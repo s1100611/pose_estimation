@@ -89,7 +89,6 @@ data pre-process/
    - `output/photos/xxx.png`：標註關節點圖片  
    - `output/keypoints/xxx.json`：對應 JSON 檔  
 
----
 
 相關連結  
 POSE-ID-on 論文: https://www.mdpi.com/2220-9964/10/4/257  
