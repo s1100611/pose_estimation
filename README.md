@@ -95,6 +95,8 @@ data pre-process/
 POSE-ID-on 論文: https://www.mdpi.com/2220-9964/10/4/257  
 POSE-ID-on GitHub: https://github.com/L9L4/POSE-ID-on  
 
+---
+
 ## 3️更改成向量方式儲存資料
 
 由於我們改變了資料儲存方式，不再使用 **POSE-ID-on** 的模型，因此也另外實作了 **33 個關節點版本**，以便支援更多姿勢資訊的比對。
@@ -112,6 +114,8 @@ POSE-ID-on GitHub: https://github.com/L9L4/POSE-ID-on
 3. **輸出結果**  
    - 將整個資料集的關節點資訊以單一 JSON 檔儲存  
    - 檔名：databaseXX.json
+
+---
 
 ## 4比對姿勢
 
