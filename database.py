@@ -62,6 +62,6 @@ for filename in os.listdir(json_folder):
 with open(database_file, 'w') as f:
     json.dump(database, f, indent=4)
 
-print(f"✅ 向量資料庫建立完成，共 {len(database)} 張照片！")
+print(f"向量資料庫建立完成，共 {len(database)} 張照片！")
 
 
