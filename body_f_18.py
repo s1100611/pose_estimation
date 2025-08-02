@@ -15,11 +15,12 @@ import json
 mp_pose=mp.solutions.pose
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
-pose=mp_pose.Pose(static_image_mode=True,#选择静态图片还是连续视频帧
-                model_complexity=2,#选择人体姿态关键点检测模型，0性能差但快，2性能好但慢，1介于之间
-                smooth_landmarks=True,#是否选择平滑关键点
-                min_detection_confidence=0.85,#置信度阈值
-                min_tracking_confidence=0.85)#追踪阈值
+pose=mp_pose.Pose(static_image_mode=True,#選擇圖片或是影片
+                model_complexity=2,#選擇人體姿態關節點檢測模型，0性能差但快，2性能好但慢，1介於之間
+                smooth_landmarks=True,#是否選擇平滑關節點
+                min_detection_confidence=0.85,#系統判定姿勢偵測成功的最低可信度分數，範圍是[0,1]
+                min_tracking_confidence=0.85)#系統判定姿勢追蹤成功的最低可信度分數
+
 
 '''
 # 初始化 Mediapipe 的背景分割模組
@@ -47,7 +48,7 @@ landmark_names = [
     "LEFT_HEEL", "RIGHT_HEEL", "LEFT_FOOT_INDEX", "RIGHT_FOOT_INDEX"
 ]
 
-reordered_indices = [0, 1, 12, 14, 16, 11, 13, 15, 24, 26, 28, 23, 25, 27, 5, 2, 8, 7]  # 根據需要自定義
+reordered_indices = [0, 1, 12, 14, 16, 11, 13, 15, 24, 26, 28, 23, 25, 27, 5, 2, 8, 7]  #根據需要自定義
 
 
 
@@ -60,13 +61,13 @@ for filename in os.listdir(input_folder):
             print(f"Cannot read {filename}")
             continue
        
-        #BGR转RGB
+        #BGR轉RGB
         img_RGB=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
-        #输入模型，获取预测结果
+        #輸入模型，獲取預測結果
         pose_results=pose.process(img_RGB)
 
         if pose_results.pose_landmarks:
-            # 繪製姿勢偵測結果
+            #繪製姿勢偵測結果
             mp_drawing.draw_landmarks(
                 image, 
                 pose_results.pose_landmarks, 
@@ -74,12 +75,12 @@ for filename in os.listdir(input_folder):
                 #landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style()
             )
             
-            # 儲存結果圖片
+            #儲存結果圖片
             output_path = os.path.join(output_folder_detected, filename).replace('.jpg', '.png')
             cv2.imwrite(output_path, image)
             print(f"{filename} 偵測到姿勢")
 
-            # 重新排序並儲存關節點
+            #重新排序並儲存關節點
             pose_keypoints_2d = []
             landmarks = pose_results.pose_landmarks.landmark
 
